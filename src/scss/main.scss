@@ -1,0 +1,139 @@
+@use './mixins';
+
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+  
+  *{
+        margin: 0;
+        padding: 0;
+    }
+    *,
+    *::before,
+    *::after{
+        box-sizing: inherit;
+    }
+
+
+body{
+    background: linear-gradient(to left,silver,black);
+        font-weight: 400;
+        line-height:1.6;
+        font-size:small;
+        max-width: 190rem;
+        min-width: 400px;
+        min-height: 100 vh;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+       
+
+}
+// .addTask{
+   
+// }
+.h1-header{
+    text-align: center;
+    color:#e7eeee;
+    text-shadow: 2px 2px #171313;
+ }
+
+// .container{
+//     display: flex;
+//     align-items: center;
+// }
+.taskInput{
+    padding: 10px;
+    border: 2px solid #e7eeee;
+    border-radius: 6px;
+    min-width: 500px;
+    box-shadow: 2px 2px #665e5e;
+    color: #433d3d;
+    font-weight: bold;
+    
+   @include mixins.phone{
+       background-color: greenyellow;
+       min-width: 300px;
+   }
+
+}
+.taskButton{
+    padding: 10px;
+    border: 2px solid #e7eeee;
+    border-radius: 6px;
+    margin-left: 2px;
+    max-width: 50px;
+    text-align: center;
+    color: #898484;
+    box-shadow: 2px 2px #665e5e;
+    
+    
+
+}
+.tasks {
+    background-color: #eee;
+    margin-top: 20px;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 2px 2px #665e5e;
+  }
+.newAddTask{
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+// .taskDone{
+//     opacity: 0.5;
+// }
+.tasks .newAddTask .del{
+    font-weight: bold;
+        font-size: 10px;
+        background-color: red;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+}
+.del{
+    position: absolute;
+    right: 10px;
+}
+.ready{
+    position: absolute;
+    right: 60px;
+    margin: 2px;
+    font-weight: bold;
+    font-size: 10px;
+    background-color:forestgreen;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.tasks .newAddTask:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  .tasks .newAddTask:hover {
+    background-color:#fef9f985;
+  }
+  .done  {
+    opacity: 0.5;
+    text-decoration: line-through green;
+  }
+.warning{
+    background: #eb8498;
+}
+.wtext{
+    color:#eb8498 ;
+}

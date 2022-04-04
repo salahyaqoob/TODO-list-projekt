@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO LIST</title>
-    <link rel="stylesheet" href="./scss/main.scss">
-    <script src="./ts/main.ts" defer type="module"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO-LIST</title>
+
+  <script src="https://kit.fontawesome.com/45b05eb7e5.js"></script>
+  <link rel="stylesheet" href="./scss/main.scss">
+  <script src="./ts/main.ts" defer type="module"></script>
 </head>
-<body>
-<!-- git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/salahyaqoob/TODO-list-projekt.git
-git push -u origin main -->
+
+<body class="container">
+  <h1 class="h1-header">TODO-LIST</h1>
+  <div>
+    <form  id="addTask">
     
+      <input class="taskInput" type="text" id="insertTask" name="insertTask" placeholder="Insert a new task here" maxlength="60"/>
+      <p id="error" class="wtext" hidden>Max text length =60 characters</p>
+    
+      <button class="taskButton" id="save" type="button" >Add</button>
+    </form>
+    <div class="tasks" id="newTasks"></div>
+  
+  </div>
+
 </body>
+
 </html>
