@@ -139,7 +139,7 @@ function toggleReadytTask(taskId: string) {
   for (let i = 0; i < listOfTasks.length; i++) {
     let status = listOfTasks[i];
 
-    if (status.id != taskId) {
+    if (status.id == taskId) {
       status.completed == false ? (status.completed = true) : (status.completed = false);
 
     }
