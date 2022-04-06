@@ -7,6 +7,7 @@ let tasksDiv = document.getElementById("newTasks") as HTMLDivElement;
 let readytask = document.querySelector("newAddTasks") as HTMLDivElement;
 let btn = document.getElementById("save") as HTMLButtonElement;
 let textErorr = document.getElementById("error") as HTMLSpanElement;
+let sortedBtn = document.getElementById("sort") as HTMLSpanElement;
 
 
 //Array&list&localstorage
@@ -32,16 +33,43 @@ function addTaskToList(x: string) {
   );
   listOfTasks.push(task);
 
-  // console.log(task.id);
 
+  //Sorted list
+
+  sortedBtn.addEventListener("click", () => {
+    sortedFunction(listOfTasks);
+
+  });
+  function sortedFunction(listOfTasks: Box[]) {
+    let sortedById = (listOfTasks: Box[]) =>
+      listOfTasks.sort((taskA: Box, taskB: Box) => {
+        if (taskA.title.toLowerCase() > taskB.title.toLowerCase()) return -1;
+        if (taskA.title.toLowerCase() < taskB.title.toLowerCase()) return 1;
+        return 0;
+      });
+
+    // console.log(task.id);
+    let sortedList = sortedById(listOfTasks)
+    console.log(sortedById);
+    addElementsToPageFrom(sortedList.reverse());
+
+    addElementsToLocalStorage(sortedList);
+
+  }
+
+
+
+  // console.log(task.id);
+  //  let sortedList=sortedById(listOfTasks)
+  //  console.log(sortedById);
   addElementsToPageFrom(listOfTasks);
 
   addElementsToLocalStorage(listOfTasks);
 
-  // console.log(listOfTasks);
-  // console.log(JSON.stringify(listOfTasks));
-
 }
+
+
+
 //********************************************************************************* */
 
 
@@ -59,8 +87,10 @@ function addElementsToPageFrom(listOfTasks: Box[]) {
     if (t.completed) {
       newDiv.className = "newAddTask done";
     }
+
     newDiv.setAttribute("data-id", t.id);
     newDiv.appendChild(document.createTextNode(t.title));
+
 
     let delSpan = document.createElement("span");
     delSpan.className = "del";
@@ -68,10 +98,11 @@ function addElementsToPageFrom(listOfTasks: Box[]) {
     newDiv.appendChild(delSpan);
     tasksDiv.appendChild(newDiv);
 
+
+
   });
 
 }
-console.log(listOfTasks);
 
 
 //********************************************************************************** */
